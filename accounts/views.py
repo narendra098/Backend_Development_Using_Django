@@ -8,7 +8,6 @@ def register(request):
         name = request.POST['name']
         username=request.POST['username']
         email = request.POST['email']
-        phone = request.POST['phone']
         password1= request.POST['password1']
         password2= request.POST['password2']
         if password1==password2:
@@ -42,3 +41,6 @@ def login(request):
             return redirect('login')
     else:
         return render(request,'login.html')
+def logout(request):
+    auth.logout(request)
+    return redirect('/')
