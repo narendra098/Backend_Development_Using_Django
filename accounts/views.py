@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User,auth
 from django.contrib import messages
 
-# Create your views here.
+# to register
 def register(request):
     if request.method == 'POST':
         name = request.POST['name']
@@ -26,6 +26,7 @@ def register(request):
     else:
         return render(request,'register.html')
 
+#to login
 def login(request):
     if request.method=='POST':
         username = request.POST['username']
@@ -41,6 +42,8 @@ def login(request):
             return redirect('login')
     else:
         return render(request,'login.html')
+
+#to logout
 def logout(request):
     auth.logout(request)
     return redirect('/')
